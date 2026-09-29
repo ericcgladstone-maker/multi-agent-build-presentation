@@ -528,3 +528,11 @@ body.prelude #prose h1{font-size:calc(max(26px,2.06cqw) * var(--k,1))}
 .amsg table:has(th:nth-child(8)) th,.amsg table:has(th:nth-child(8)) td{padding:3px 5px}
 /* Opening 1: the wider prose column reaches over the control bar; it has nothing clickable, so clicks pass through to the controls */
 body.prelude #prose{pointer-events:none}
+
+/* "The problem" card (2026-09-29): a long page-authored card steps down a size, and a line that still does not fit
+   wraps under its own indent instead of clipping. Scoped to cards of 20+ lines, so the other openings keep their size. */
+.prel.intro2:has(> .pl:nth-child(20)) .pl.line,.prel.intro2:has(> .pl:nth-child(20)) .pl.tree{font-size:max(12.5px,1.62cqi);line-height:1.55}
+.prel.intro2:has(> .pl:nth-child(20)) .pl{max-width:none}
+.prel.intro2:has(> .pl:nth-child(20)) .pl.tree{white-space:pre-wrap;padding-left:4ch;text-indent:-4ch}
+.prel.intro2:has(> .pl:nth-child(20)) .pl.line,.prel.intro2:has(> .pl:nth-child(20)) .pl.tree{line-height:1.42;font-size:max(12px,1.55cqi)}
+.prel.intro2:has(> .pl:nth-child(20)) .pl.gap{height:.55em}
