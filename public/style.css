@@ -536,3 +536,19 @@ body.prelude #prose{pointer-events:none}
 .prel.intro2:has(> .pl:nth-child(20)) .pl.tree{white-space:pre-wrap;padding-left:4ch;text-indent:-4ch}
 .prel.intro2:has(> .pl:nth-child(20)) .pl.line,.prel.intro2:has(> .pl:nth-child(20)) .pl.tree{line-height:1.42;font-size:max(12px,1.55cqi)}
 .prel.intro2:has(> .pl:nth-child(20)) .pl.gap{height:.55em}
+
+/* ======================= Phones (2026-10-12): restate the one-column layout last ======================= */
+/* Later passes set two-column grids without a width condition, which overrode the phone block above.
+   Size containment also gave the auto-height screen no height, so the controls landed on the prose. */
+@media (max-width:900px){
+  .screen{container-type:inline-size;height:auto;min-height:100vh;width:100%}
+  body.prelude .stage,body:not(.prelude) .stage{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:24px;padding:24px 16px}
+  .left{height:auto}
+  .console{height:68vh;flex:none;max-height:none}
+  body.prelude .console{height:auto}
+  .prose{max-height:none;overflow:visible;padding-top:8px}
+  body.prelude #prose{pointer-events:auto}
+  .pl.big{font-size:26px}
+  .pl.line,.pl.neq{font-size:17px}
+  .pl.tree{font-size:12px}
+}
